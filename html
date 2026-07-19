@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login • Learncare Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Sans+Bengali:wght@400;500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
+        }
+        
+        .login-bg {
+            background: linear-gradient(135deg, #0f766e 0%, #134e4b 100%);
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+        }
+
+        .academy-brand {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <a href="learncarebd-clone.html" class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-teal-800 rounded-2xl flex items-center justify-center">
+                        <span class="text-white text-3xl font-bold tracking-tighter">LC</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-3xl tracking-tight text-gray-900">Learncare</span>
+                        <span class="font-semibold text-teal-700 text-xl">Academy</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-x-2">
+                <a href="learncarebd-clone.html" 
+                   class="px-5 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <div class="min-h-[calc(100vh-73px)] flex items-center justify-center px-6 py-10">
+        <div class="w-full max-w-5xl">
+            <div class="grid md:grid-cols-5 shadow-xl border border-gray-100 rounded-3xl overflow-hidden bg-white">
+                
+                <!-- Left Side - Brand & Info -->
+                <div class="md:col-span-2 login-bg text-white p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-x-3 mb-8">
+                            <div class="w-9 h-9 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
+                                <span class="text-white text-3xl font-bold">LC</span>
+                            </div>
+                            <span class="font-bold text-3xl">Learncare</span>
+                        </div>
+                        
+                        <h1 class="text-4xl leading-tight font-bold tracking-tight">
+                            Welcome back to<br>
+                            your learning<br>
+                            journey.
+                        </h1>
+                        
+                        <p class="mt-6 text-teal-200 text-lg">
+                            Continue building unstoppable confidence in English.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-auto pt-8">
+                        <div class="flex items-center gap-x-3">
+                            <div class="flex -space-x-2">
+                                <img src="https://picsum.photos/id/1005/32/32" class="w-8 h-8 rounded-full border border-white/30 object-cover" alt="">
+                                <img src="https://picsum.photos/id/1009/32/32" class="w-8 h-8 rounded-full border border-white/30 object-cover" alt="">
+                                <img src="https://picsum.photos/id/1012/32/32" class="w-8 h-8 rounded-full border border-white/30 object-cover" alt="">
+                            </div>
+                            <span class="text-sm text-teal-200">Joined by 2,400+ students</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Login Form -->
+                <div class="md:col-span-3 p-10 md:p-12">
+                    <div class="max-w-md mx-auto">
+                        
+                        <!-- Header -->
+                        <div class="mb-8">
+                            <h2 class="text-3xl font-bold tracking-tight text-gray-900">Hi, Welcome back!</h2>
+                            <p class="text-gray-500 mt-2">Sign in to continue your progress</p>
+                        </div>
+                        
+                        <!-- Login Form -->
+                        <form id="login-form" onsubmit="handleLogin(event)">
+                            
+                            <!-- Email -->
+                            <div class="mb-5">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-400"></i>
+                                    </div>
+                                    <input type="email" id="email" value="student@example.com" required
+                                           class="form-input w-full pl-11 pr-4 py-3.5 border border-gray-300 rounded-2xl text-sm focus:border-teal-600">
+                                </div>
+                            </div>
+                            
+                            <!-- Password -->
+                            <div class="mb-5">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-gray-400"></i>
+                                    </div>
+                                    <input type="password" id="password" value="demo123" required
+                                           class="form-input w-full pl-11 pr-4 py-3.5 border border-gray-300 rounded-2xl text-sm focus:border-teal-600">
+                                    <button type="button" onclick="togglePassword()" 
+                                            class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600">
+                                        <i class="fas fa-eye" id="password-icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Remember Me + Forgot -->
+                            <div class="flex items-center justify-between mb-7">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="accent-teal-700 w-4 h-4">
+                                    <span class="ml-2 text-sm text-gray-600">Keep me signed in</span>
+                                </label>
+                                
+                                <a href="#" class="text-sm text-teal-700 hover:text-teal-800 font-medium">Forgot Password?</a>
+                            </div>
+                            
+                            <!-- Sign In Button -->
+                            <button type="submit" 
+                                    class="w-full py-[15px] bg-teal-700 hover:bg-teal-800 transition-all font-semibold text-white rounded-2xl flex items-center justify-center gap-x-2 text-base shadow-sm">
+                                <span>Sign In</span>
+                            </button>
+                            
+                            <!-- Divider -->
+                            <div class="flex items-center gap-x-4 my-6">
+                                <div class="flex-1 h-px bg-gray-200"></div>
+                                <span class="text-xs text-gray-400 font-medium">OR</span>
+                                <div class="flex-1 h-px bg-gray-200"></div>
+                            </div>
+                            
+                            <!-- Social Login -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" onclick="socialLogin('google')"
+                                        class="flex items-center justify-center gap-x-3 py-3 border border-gray-300 hover:bg-gray-50 transition-colors rounded-2xl text-sm font-medium">
+                                    <i class="fab fa-google text-red-500"></i>
+                                    <span>Google</span>
+                                </button>
+                                
+                                <button type="button" onclick="socialLogin('facebook')"
+                                        class="flex items-center justify-center gap-x-3 py-3 border border-gray-300 hover:bg-gray-50 transition-colors rounded-2xl text-sm font-medium">
+                                    <i class="fab fa-facebook-f text-blue-600"></i>
+                                    <span>Facebook</span>
+                                </button>
+                            </div>
+                            
+                        </form>
+                        
+                        <!-- Register Link -->
+                        <div class="mt-8 text-center">
+                            <p class="text-sm text-gray-600">
+                                Don't have an account?
+                                <a href="#" onclick="showRegisterModal()" 
+                                   class="font-semibold text-teal-700 hover:text-teal-800 ml-1">Register Now</a>
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Trust badges -->
+            <div class="mt-6 flex justify-center">
+                <div class="flex items-center gap-x-5 text-xs text-gray-500">
+                    <div class="flex items-center gap-x-1.5">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Login</span>
+                    </div>
+                    <div>256-bit SSL encryption</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Success Toast -->
+    <div id="success-toast" class="hidden fixed bottom-5 right-5 bg-white border shadow-xl px-5 py-3.5 rounded-2xl flex items-center gap-x-3 z-50 max-w-xs">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle text-emerald-500 text-xl mr-3"></i>
+            <div>
+                <span id="toast-message" class="font-semibold text-sm"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Register Modal -->
+    <div id="register-modal" onclick="if (event.target.id === 'register-modal') hideRegisterModal()" 
+         class="hidden fixed inset-0 bg-black/60 z-[999] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-md mx-4 rounded-3xl shadow-xl p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-bold text-2xl">Create Account</h3>
+                <button onclick="hideRegisterModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">First Name</label>
+                        <input type="text" value="Rahim" required class="w-full px-4 py-3 border border-gray-300 rounded-2xl text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1.5">Last Name</label>
+                        <input type="text" value="Ahmed" required class="w-full px-4 py-3 border border-gray-300 rounded-2xl text-sm">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1.5">Email Address</label>
+                    <input type="email" value="rahim.ahmed@example.com" required class="w-full px-4 py-3 border border-gray-300 rounded-2xl text-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1.5">Password</label>
+                    <input type="password" value="demo123" required class="w-full px-4 py-3 border border-gray-300 rounded-2xl text-sm">
+                </div>
+                
+                <div class="flex items-center gap-2 mb-6">
+                    <input type="checkbox" checked class="accent-teal-700">
+                    <span class="text-xs text-gray-600">I agree to the <a href="#" class="text-teal-700">Terms &amp; Conditions</a></span>
+                </div>
+                
+                <button type="submit" class="w-full py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-2xl">
+                    Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            // Already initialized via CDN
+        }
+        
+        // Handle Login
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation
+            if (!email || !password) {
+                alert("Please enter email and password");
+                return;
+            }
+            
+            // Show loading state
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="flex items-center justify-center gap-x-2"><i class="fas fa-spinner fa-spin"></i> Signing in...</span>`;
+            btn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(function() {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                // Show success toast
+                showSuccessToast(`Welcome back! Logged in as ${email}`);
+                
+                // Redirect to home after 1.8 seconds
+                setTimeout(function() {
+                    window.location.href = "learncarebd-clone.html";
+                }, 1800);
+            }, 1700);
+        }
+        
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.getElementById('password-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        // Social Login
+        function socialLogin(provider) {
+            const btns = document.querySelectorAll('.grid-cols-2 button');
+            
+            btns.forEach(b => b.disabled = true);
+            
+            const originalTexts = [];
+            btns.forEach((btn, i) => {
+                originalTexts[i] = btn.innerHTML;
+                btn.innerHTML = `<span class="flex items-center justify-center gap-x-2"><i class="fas fa-spinner fa-spin"></i> Connecting...</span>`;
+            });
+            
+            setTimeout(() => {
+                btns.forEach((btn, i) => {
+                    btn.innerHTML = originalTexts[i];
+                    btn.disabled = false;
+                });
+                
+                showSuccessToast(`Successfully logged in with ${provider}`);
+                
+                setTimeout(function() {
+                    window.location.href = "learncarebd-clone.html";
+                }, 1500);
+            }, 1600);
+        }
+        
+        // Show success toast
+        function showSuccessToast(message) {
+            const toast = document.getElementById('success-toast');
+            const msg = document.getElementById('toast-message');
+            
+            msg.innerHTML = message;
+            toast.style.display = 'flex';
+            toast.classList.remove('hidden');
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.3s ease';
+                toast.style.opacity = '0';
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transition = '';
+                    toast.style.display = 'none';
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 3400);
+        }
+        
+        // Register Modal
+        function showRegisterModal() {
+            document.getElementById('register-modal').classList.remove('hidden');
+            document.getElementById('register-modal').classList.add('flex');
+        }
+        
+        function hideRegisterModal() {
+            const modal = document.getElementById('register-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = `<span class="flex justify-center items-center gap-x-2"><i class="fas fa-spinner fa-spin"></i> Creating account...</span>`;
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                hideRegisterModal();
+                showSuccessToast("Account created successfully! Please log in.");
+                
+                // Pre-fill login form with demo data
+                setTimeout(function() {
+                    document.getElementById('email').value = "rahim.ahmed@example.com";
+                    document.getElementById('password').value = "demo123";
+                }, 1300);
+            }, 1800);
+        }
+        
+        // Initialize
+        function initializeLoginPage() {
+            initTailwind();
+            
+            // Demo: Auto-focus email field
+            setTimeout(() => {
+                const emailField = document.getElementById('email');
+                if (emailField) emailField.focus();
+            }, 1200);
+            
+            // Keyboard support
+            document.addEventListener('keydown', function(ev) {
+                if (ev.key === "Escape") {
+                    const regModal = document.getElementById('register-modal');
+                    if (!regModal.classList.contains('hidden')) {
+                        hideRegisterModal();
+                    }
+                }
+            });
+            
+            // Easter egg: Press "?" to show demo credentials
+            document.addEventListener('keypress', function(e) {
+                if (e.key === '?') {
+                    const email = document.getElementById('email');
+                    const pass = document.getElementById('password');
+                    if (email && pass) {
+                        email.value = 'demo@learncarebd.com';
+                        pass.value = 'learncare2026';
+                        e.preventDefault();
+                    }
+                }
+            });
+            
+            console.log('%c[Learncare] Login page loaded successfully.', 'color:#166534');
+        }
+        
+        window.onload = initializeLoginPage;
+    </script>
+</body>
+</html>
