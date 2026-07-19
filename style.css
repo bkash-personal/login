@@ -1,0 +1,128 @@
+/* Learncare Academy - Shared Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Bengali:wght@400;500;600&display=swap');
+
+:root {
+    --primary: #0f766e;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Hero Background */
+.hero-bg {
+    background: linear-gradient(rgba(15, 118, 110, 0.85), rgba(15, 118, 110, 0.75)), 
+                url('https://picsum.photos/id/1015/2000/1200');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Course Cards */
+.course-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Benefit Cards */
+.benefit-card {
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Form Inputs */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    border-color: #0f766e;
+}
+
+/* Login Background */
+.login-bg {
+    background: linear-gradient(135deg, #0f766e 0%, #134e4b 100%);
+}
+
+/* Toast */
+#toast, #success-toast {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Buttons */
+button, .btn {
+    transition: all 0.2s ease;
+}
+
+/* Section Headers */
+.section-header {
+    position: relative;
+    display: inline-block;
+}
+
+.section-header:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #0f766e, #14b8a6);
+    border-radius: 9999px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-bg {
+        height: 520px;
+    }
+    
+    .course-card {
+        margin-bottom: 10px;
+    }
+}
+
+/* Utility */
+.bengali-text {
+    font-family: 'Noto Sans Bengali', system-ui, sans-serif;
+}
+
+.price {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Academy Brand Color */
+.academy-green {
+    color: #0f766e;
+}
+
+/* Modal Styles */
+#login-modal, #register-modal {
+    animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Cart Indicator */
+#cart-count {
+    font-size: 10px;
+    line-height: 1;
+}
